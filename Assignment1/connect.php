@@ -1,14 +1,15 @@
 <?php
-
-$conn = mysqli_connect("localhost", "admin", "admin", "login");
+$dbname = "login";
+$conn = mysqli_connect("localhost", "admin", "admin");
 if (!$conn) {
     die("connection failed" . mysqli_connect_error());
 } else {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-
-    $createdb = "CREATE DATABASE login ";
+   
+    $createdb = "CREATE DATABASE IF NOT EXISTS login ";
+    $conn->select_db($dbname);
     $createtable = "CREATE TABLE logininfo (
         username VARCHAR(30) NOT NULL,
         password1 VARCHAR(30) NOT NULL

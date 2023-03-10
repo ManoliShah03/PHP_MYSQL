@@ -1,6 +1,6 @@
 <?php
 $conn = mysqli_connect("localhost", "admin", "admin");
-$dbname = "user";
+$dbname = "login";
 $tbname = "post";
 $id = $_POST["id"];
 $PostTitle = $_POST["PostTitle"];
@@ -8,16 +8,7 @@ $PostDescription = $_POST["PostDescription"];
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
-} else {
-
-// Create database
-    $sql = "CREATE DATABASE user";
-// if ($conn->query($sql) === TRUE) {
-    //   echo "Database created successfully";
-    // } else {
-    //   echo "Error creating database: " . $conn->error;
-    // }
-}
+} 
 
 $conn = mysqli_connect("localhost", "admin", "admin", $dbname);
 //Create Table
