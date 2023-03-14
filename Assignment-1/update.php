@@ -14,20 +14,24 @@ if (isset($_POST['update'])) {
     $PostTitle = $_POST["PostTitle"];
     $PostDescription = $_POST["PostDescription"];
 
-    echo "<script>alert('$id')</script>";
+    // echo "<script>alert('$id')</script>";
 
     $sql = "UPDATE Post SET post_title = '$PostTitle', post_description = '$PostDescription' WHERE id = $id" or die("this die!!!");
 
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
-        // $row=mysqli_fetch_array($result);
+        echo '<script>alert("Data Updated Successfully"); window.location.href = "show.php";</script>';
         // echo "updated successfully";
-        header('location:show.php');
-    } else {
-        die(mysqli_error($conn));
-    }
+        // header('location:show.php');
+    } 
 }
+
+$id=$_GET['updateid'];
+
+$result=mysqli_query($conn,"select * from Post where id='$id'");
+$row=mysqli_fetch_array($result);
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -85,11 +89,11 @@ if (isset($_POST['update'])) {
                 <input type="text" class="form-control" id="PId" name="id" placeholder="Enter Post Id"><br> -->
 
                 <label for="PostTitle">Post Title</label>
-                <input type="text" class="form-control" id="Ptitle" name="PostTitle" placeholder="Enter Post Title" > <br>
+                <input type="text" class="form-control" id="Ptitle" name="PostTitle" value="<?php echo $row['post_title']?>" placeholder="Enter Post Title" required> <br>
 
                 <label for="PostDescription">Post Description</label>
                 <input type="text" class="form-control" id="Pdescription" name="PostDescription"
-                    placeholder="Enter Post Description">
+                    placeholder="Enter Post Description" value="<?php echo $row['post_description']?>" required>
 
 
             </div>

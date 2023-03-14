@@ -9,6 +9,12 @@ include 'connect1.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+      td{
+      max-width: 400px;
+      word-break: break-all;
+      }
+    </style>
     <title>Document</title>
 </head>
 <body>
@@ -40,8 +46,10 @@ if($result){
         <td>'.$post_title.'</td>
         <td>'.$post_description.'</td>
         <td>
-    <button class="btn btn-primary"><a href="update.php?updateid='.$id.'" class="text-light">Update</a></button>
-    <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" class="text-light">Delete</a></button>
+        
+    <button class="btn btn-primary"><a href="update.php?updateid='.$id.'"class="text-light">Update</a></button>
+    <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" 
+    class="text-light">Delete</a></button>
   </tbody>
 </td>
         </tr>';
@@ -51,5 +59,6 @@ if($result){
 
 </table>
     </div>
+
 </body>
 </html>

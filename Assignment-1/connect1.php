@@ -20,8 +20,9 @@ if ($conn->query($createdb) === true) {
 
 $createtb = "CREATE TABLE IF NOT EXISTS Post (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    post_title VARCHAR(100),
-    post_description TEXT)";
+    post_title VARCHAR(20),
+    post_description TEXT
+    )";
 
 if ($conn->query($createtb) === true) {
     // echo "Table created successfully";
