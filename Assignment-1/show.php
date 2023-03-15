@@ -33,31 +33,42 @@ include 'connect1.php';
   <tbody>
 
 <?php
-$sql="Select * from `Post`";
-$result=mysqli_query($conn,$sql);
-if($result){
-    while($row=mysqli_fetch_assoc($result)){
-        $id=$row['id'];
-        $post_title=$row['post_title'];
-        $post_description=$row['post_description'];
+
+$sql = "Select * from `Post`";
+
+$result = mysqli_query($conn, $sql);
+if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $id = $row['id'];
+        $post_title = $row['post_title'];
+        $post_description = $row['post_description'];
         echo '
         <tr>
-        <th scope="row">' .$id.'</th>
-        <td>'.$post_title.'</td>
-        <td>'.$post_description.'</td>
+        <th scope="row">' . $id . '</th>
+        <td>' . $post_title . '</td>
+        <td>' . $post_description . '</td>
         <td>
-        
-    <button class="btn btn-primary"><a href="update.php?updateid='.$id.'"class="text-light">Update</a></button>
-    <button class="btn btn-danger"><a href="delete.php?deleteid='.$id.'" 
+
+    <button class="btn btn-primary"><a href="update.php?updateid=' . $id . '"    class="text-light">Update</a></button>
+    <button class="btn btn-danger"><a href="delete.php?deleteid=' . $id . '"
     class="text-light">Delete</a></button>
+
+
   </tbody>
 </td>
         </tr>';
     }
 }
+
 ?>
 
 </table>
+<?php
+
+if ($id < 1) {
+    echo ("<center><h1> No records found </h1></center>");
+}
+?>
     </div>
 
 </body>
